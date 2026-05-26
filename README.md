@@ -1,5 +1,9 @@
 # Clube da Leitura
 
+## Projeto
+
+Desenvolvido durante o curso Back-End da [Academia do Programador](https://www.academiadoprogramador.net) 2026
+
 Gustavo tem uma coleção grande de revistas em quadrinhos. Por isso, resolveu
 emprestar para os amigos. Assim foi criado o Clube da Leitura.
 
