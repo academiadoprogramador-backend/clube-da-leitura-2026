@@ -1,7 +1,8 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 
-TelaCaixa telaCaixa = new TelaCaixa();
+RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+TelaCaixa telaCaixa = new TelaCaixa(repositorioCaixa);
 
 TelaPrincipal telaPrincipal = new TelaPrincipal();
 
@@ -26,7 +27,7 @@ while (true)
 
         if (opcaoMenuInterno == "1")
         {
-
+            telaCaixa.Cadastrar();
         }
 
         else if (opcaoMenuInterno == "2")
