@@ -32,7 +32,7 @@ while (true)
 
         else if (opcaoMenuInterno == "2")
         {
-
+            telaCaixa.Editar();
         }
 
         else if (opcaoMenuInterno == "3")
@@ -42,7 +42,7 @@ while (true)
 
         else if (opcaoMenuInterno == "4")
         {
-            telaCaixa.VisualizarTodos();
+            telaCaixa.VisualizarTodos(true);
         }
     }
 

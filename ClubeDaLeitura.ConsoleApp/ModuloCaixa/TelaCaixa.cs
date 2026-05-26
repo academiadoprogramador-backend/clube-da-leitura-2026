@@ -44,11 +44,40 @@ public class TelaCaixa
         Console.ReadLine();
     }
 
-    public void VisualizarTodos()
+    public void Editar()
     {
         Console.WriteLine("---------------------------------");
-        Console.WriteLine("Visualização de Caixas");
+        Console.WriteLine("Edição de Caixa");
         Console.WriteLine("---------------------------------");
+
+        VisualizarTodos(false);
+
+        Console.WriteLine("---------------------------------");
+
+        Console.Write("Digite o ID do registro que deseja editar: ");
+        int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("---------------------------------");
+
+        Caixa caixaAtualizada = ObterDadosCadastrais();
+
+        repositorioCaixa.Editar(idSelecionado, caixaAtualizada);
+
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine($"O registro \"{caixaAtualizada.Etiqueta}\" foi editado com sucesso!");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Digite ENTER para continuar");
+        Console.ReadLine();
+    }
+
+    public void VisualizarTodos(bool deveExibirCabecalho)
+    {
+        if (deveExibirCabecalho)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Visualização de Caixas");
+            Console.WriteLine("---------------------------------");
+        }
 
         Console.WriteLine(
             "{0, -7} | {1, -20} | {2, -10} | {3, -20}",
@@ -70,9 +99,12 @@ public class TelaCaixa
             );
         }
 
-        Console.WriteLine("---------------------------------");
-        Console.WriteLine("Digite ENTER para continuar");
-        Console.ReadLine();
+        if (deveExibirCabecalho)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Digite ENTER para continuar");
+            Console.ReadLine();
+        }
     }
 
     private Caixa ObterDadosCadastrais()
