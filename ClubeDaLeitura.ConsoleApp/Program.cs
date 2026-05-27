@@ -16,48 +16,41 @@ while (true)
         break;
     }
 
-    if (opcaoMenuPrincipal == "1") // Caixas
+    while (true)
     {
-        string? opcaoMenuInterno = telaCaixa.ObterOpcaoMenu();
-
-        if (opcaoMenuInterno == "S")
+        if (opcaoMenuPrincipal == "1") // Caixas
         {
-            break;
+            string? opcaoMenuInterno = telaCaixa.ObterOpcaoMenu();
+
+            if (opcaoMenuInterno == "S")
+                break;
+
+            if (opcaoMenuInterno == "1")
+                telaCaixa.Cadastrar();
+
+            else if (opcaoMenuInterno == "2")
+                telaCaixa.Editar();
+
+            else if (opcaoMenuInterno == "3")
+                telaCaixa.Excluir();
+
+            else if (opcaoMenuInterno == "4")
+                telaCaixa.VisualizarTodos(true);
         }
 
-        if (opcaoMenuInterno == "1")
-        {
-            telaCaixa.Cadastrar();
-        }
-
-        else if (opcaoMenuInterno == "2")
-        {
-            telaCaixa.Editar();
-        }
-
-        else if (opcaoMenuInterno == "3")
+        else if (opcaoMenuPrincipal == "2") // Revistas
         {
 
         }
 
-        else if (opcaoMenuInterno == "4")
+        else if (opcaoMenuPrincipal == "3") // Amigos
         {
-            telaCaixa.VisualizarTodos(true);
+
         }
-    }
 
-    else if (opcaoMenuPrincipal == "2") // Revistas
-    {
+        else if (opcaoMenuPrincipal == "4") // Empréstimos
+        {
 
-    }
-
-    else if (opcaoMenuPrincipal == "3") // Amigos
-    {
-
-    }
-
-    else if (opcaoMenuPrincipal == "4") // Empréstimos
-    {
-
+        }
     }
 }
