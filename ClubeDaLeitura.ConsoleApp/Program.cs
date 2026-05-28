@@ -5,7 +5,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
 RepositorioRevista repositorioRevista = new RepositorioRevista();
 
-Caixa caixaTeste = new Caixa("Ação", "Vermelho", 5);
+Caixa caixaTeste = new Caixa("Acao", "Vermelho", 5);
 Revista revistaTeste = new Revista("Action Comics", 1, 1976, caixaTeste);
 
 repositorioCaixa.Cadastrar(caixaTeste);
