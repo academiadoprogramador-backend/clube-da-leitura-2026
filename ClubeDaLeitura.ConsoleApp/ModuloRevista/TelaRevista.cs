@@ -62,7 +62,39 @@ public class TelaRevista
 
     public void VisualizarTodos(bool deveExibirCabecalho)
     {
-        throw new NotImplementedException();
+        if (deveExibirCabecalho)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Visualização de Revistas");
+            Console.WriteLine("---------------------------------");
+        }
+
+        Console.WriteLine(
+            "{0, -7} | {1, -25} | {2, -6} | {3, -4} | {4, -15}",
+            "Id", "Título", "Edição", "Ano", "Caixa"
+        );
+
+        Revista[] revistas = repositorioRevista.SelecionarTodos();
+
+        for (int i = 0; i < revistas.Length; i++)
+        {
+            Revista r = revistas[i];
+
+            if (r == null)
+                continue;
+
+            Console.WriteLine(
+                "{0, -7} | {1, -25} | {2, -6} | {3, -4} | {4, -15}",
+                r.Id, r.Titulo, r.NumeroEdicao, r.AnoPublicacao, r.Caixa.Etiqueta
+            );
+        }
+
+        if (deveExibirCabecalho)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Digite ENTER para continuar");
+            Console.ReadLine();
+        }
     }
 
     private Revista ObterDadosCadastrais()
@@ -100,7 +132,7 @@ public class TelaRevista
 
         Console.WriteLine("---------------------------------");
 
-        Console.Write("Digite o ID do registro que deseja excluir: ");
+        Console.Write("Digite o ID do registro que deseja selecionar: ");
         int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
         Caixa? caixaSelecionada = repositorioCaixa.SelecionarPorId(idSelecionado);

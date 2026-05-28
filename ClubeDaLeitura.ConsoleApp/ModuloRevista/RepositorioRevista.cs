@@ -15,4 +15,9 @@ public class RepositorioRevista
             }
         }
     }
+
+    public Revista[] SelecionarTodos()
+    {
+        return registros;
+    }
 }
