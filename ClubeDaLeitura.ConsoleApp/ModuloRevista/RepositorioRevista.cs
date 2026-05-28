@@ -42,6 +42,25 @@ public class RepositorioRevista
         return true;
     }
 
+    public bool Excluir(int idSelecionado)
+    {
+        for (int i = 0; i < registros.Length; i++)
+        {
+            Revista r = registros[i];
+
+            if (r == null)
+                continue;
+
+            if (r.Id == idSelecionado)
+            {
+                registros[i] = null;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public Revista[] SelecionarTodos()
     {
         return registros;

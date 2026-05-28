@@ -81,7 +81,26 @@ public class TelaRevista
 
     public void Excluir()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Exclusão de Revista");
+        Console.WriteLine("---------------------------------");
+
+        // 1. Visualizar revistas cadastradas e obter o ID que deseja excluir
+        VisualizarTodos(false);
+
+        Console.WriteLine("---------------------------------");
+
+        Console.Write("Digite o ID do registro que deseja excluir: ");
+        int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+        // 2. Excluir a revista no repositório
+        repositorioRevista.Excluir(idSelecionado);
+
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine($"O registro de ID \"{idSelecionado}\" foi excluído com sucesso!");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Digite ENTER para continuar");
+        Console.ReadLine();
     }
 
     public void VisualizarTodos(bool deveExibirCabecalho)
