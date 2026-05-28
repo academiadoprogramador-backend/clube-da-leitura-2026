@@ -33,7 +33,21 @@ public class TelaRevista
 
     public void Cadastrar()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Cadastro de Revista");
+        Console.WriteLine("---------------------------------");
+
+        // 1. Obter os dados cadastrais da revista
+        Revista novaRevista = ObterDadosCadastrais();
+
+        // 2. Armazenar a revista no repositório
+        repositorioRevista.Cadastrar(novaRevista);
+
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine($"O registro \"{novaRevista.Titulo}\" foi cadastrado com sucesso!");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Digite ENTER para continuar");
+        Console.ReadLine();
     }
 
     public void Editar()
@@ -49,5 +63,48 @@ public class TelaRevista
     public void VisualizarTodos(bool deveExibirCabecalho)
     {
         throw new NotImplementedException();
+    }
+
+    private Revista ObterDadosCadastrais()
+    {
+        Console.Write("Informe o título da revista: ");
+        string? titulo = Console.ReadLine();
+
+        Console.Write("Informe o número da edição: ");
+        int numeroEdicao = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Informe o ano de publicação: ");
+        int anoPublicacao = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("---------------------------------");
+
+        Console.WriteLine(
+            "{0, -7} | {1, -20} | {2, -10} | {3, -20}",
+            "Id", "Etiqueta", "Cor", "Tempo de Empréstimo"
+        );
+
+        Caixa[] registros = repositorioCaixa.SelecionarTodos();
+
+        for (int i = 0; i < registros.Length; i++)
+        {
+            Caixa c = registros[i];
+
+            if (c == null)
+                continue;
+
+            Console.WriteLine(
+                "{0, -7} | {1, -20} | {2, -10} | {3, -20}",
+                c.Id, c.Etiqueta, c.Cor, c.DiasDeEmprestimo
+            );
+        }
+
+        Console.WriteLine("---------------------------------");
+
+        Console.Write("Digite o ID do registro que deseja excluir: ");
+        int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+        Caixa? caixaSelecionada = repositorioCaixa.SelecionarPorId(idSelecionado);
+
+        return new Revista(titulo, numeroEdicao, anoPublicacao, caixaSelecionada);
     }
 }
