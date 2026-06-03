@@ -1,3 +1,4 @@
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
@@ -117,11 +118,11 @@ public class TelaRevista
             "Id", "Título", "Edição", "Ano", "Caixa"
         );
 
-        Revista[] revistas = repositorioRevista.SelecionarTodos();
+        EntidadeBase[] revistas = repositorioRevista.SelecionarTodos();
 
         for (int i = 0; i < revistas.Length; i++)
         {
-            Revista r = revistas[i];
+            Revista r = (Revista)revistas[i];
 
             if (r == null)
                 continue;
@@ -158,7 +159,7 @@ public class TelaRevista
             "Id", "Etiqueta", "Cor", "Tempo de Empréstimo"
         );
 
-        object[] registros = repositorioCaixa.SelecionarTodos();
+        EntidadeBase[] registros = repositorioCaixa.SelecionarTodos();
 
         for (int i = 0; i < registros.Length; i++)
         {
