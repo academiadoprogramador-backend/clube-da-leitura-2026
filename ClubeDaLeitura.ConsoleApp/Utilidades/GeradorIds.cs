@@ -5,6 +5,7 @@ public static class GeradorIds
     private static int contadorIdsCaixa = 1;
     private static int contadorIdsRevista = 1;
     private static int contadorIdsAmigo = 1;
+    private static int contadorIdsEmprestimo = 1;
 
     public static int ObterIdCaixa()
     {
@@ -19,5 +20,10 @@ public static class GeradorIds
     public static int ObterIdAmigo()
     {
         return contadorIdsAmigo++;
+    }
+
+    public static int ObterIdEmprestimo()
+    {
+        return contadorIdsEmprestimo++;
     }
 }
