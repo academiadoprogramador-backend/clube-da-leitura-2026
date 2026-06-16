@@ -4,6 +4,12 @@ using ClubeDaLeitura.ConsoleApp.Utilidades;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
+public enum StatusRevista
+{
+    Disponivel,
+    Emprestada
+}
+
 /*
     Regras de Negócio:
         ● Campos obrigatórios:
@@ -11,13 +17,24 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
             ○ Número da edição (número positivo)
             ○ Ano de publicação (ano válido)
             ○ Caixa (seleção obrigatória)
+
+        ● O sistema deve armazenar e mostrar o status atual das revistas cadastradas
+        (disponível/emprestada/reservada)
 */
 public class Revista : EntidadeBase
 {
     public string Titulo { get; private set; }
     public int NumeroEdicao { get; private set; }
     public int AnoPublicacao { get; private set; }
+    public StatusRevista Status { get; private set; }
     public Caixa Caixa { get; private set; }
+    public bool EstaDisponivel
+    {
+        get
+        {
+            return Status == StatusRevista.Disponivel;
+        }
+    }
 
     public Revista(string titulo, int numeroEdicao, int anoPublicacao, Caixa caixa)
     {
@@ -27,6 +44,18 @@ public class Revista : EntidadeBase
         NumeroEdicao = numeroEdicao;
         AnoPublicacao = anoPublicacao;
         Caixa = caixa;
+
+        Status = StatusRevista.Disponivel;
+    }
+
+    public void Emprestar()
+    {
+        Status = StatusRevista.Emprestada;
+    }
+
+    public void Devolver()
+    {
+        Status = StatusRevista.Disponivel;
     }
 
     // substituição de método
