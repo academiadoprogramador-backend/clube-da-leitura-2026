@@ -11,7 +11,7 @@ public abstract class TelaBase
         this.repositorio = repositorio;
     }
 
-    public string? ObterOpcaoMenu()
+    public virtual string? ObterOpcaoMenu()
     {
         Console.WriteLine("---------------------------------");
         Console.WriteLine($"Gestão de {nomeEntidade}s");

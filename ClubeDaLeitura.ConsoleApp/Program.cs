@@ -22,7 +22,7 @@ repositorioEmprestimo.Cadastrar(emprestimoTeste);
 
 TelaCaixa telaCaixa = new TelaCaixa("Caixa", repositorioCaixa, repositorioRevista);
 TelaRevista telaRevista = new TelaRevista("Revista", repositorioRevista, repositorioCaixa);
-TelaAmigo telaAmigo = new TelaAmigo("Amigo", repositorioAmigo);
+TelaAmigo telaAmigo = new TelaAmigo("Amigo", repositorioAmigo, repositorioEmprestimo);
 TelaEmprestimo telaEmprestimo = new TelaEmprestimo(
     repositorioEmprestimo,
     repositorioRevista,
@@ -101,6 +101,9 @@ while (true)
 
             else if (opcaoMenuInterno == "4")
                 telaAmigo.VisualizarTodos(true);
+
+            else if (opcaoMenuInterno == "5")
+                telaAmigo.VisualizarEmprestimosAmigo();
         }
 
         else if (opcaoMenuPrincipal == "4") // Empréstimos
